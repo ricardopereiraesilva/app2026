@@ -88,15 +88,11 @@ h4 { font-size: 1.05rem; font-weight: 700; }
 
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; }
 .brand__text b { color: var(--brand-2); }
-.brand__mark {
-  width: 26px; height: 26px; border-radius: 8px;
-  background: var(--grad); box-shadow: var(--shadow-blue);
-  position: relative; flex: none;
-}
-.brand__mark::after {
-  content: ""; position: absolute; inset: 6px 6px auto 6px; height: 3px;
-  border-radius: 3px; background: rgba(6,18,31,.85);
-  box-shadow: 0 6px 0 rgba(6,18,31,.85), 0 -0px 0 rgba(6,18,31,.85);
+/* Marca: silhueta da ponte (mesma do site da SSSN 7), fundo transparente */
+.brand__bridge {
+  height: 28px; width: auto; flex: none;
+  opacity: .92;
+  filter: drop-shadow(0 0 6px rgba(96, 165, 250, .35));
 }
 
 .nav__menu { display: flex; align-items: center; gap: 26px; }
