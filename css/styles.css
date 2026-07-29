@@ -124,7 +124,14 @@ h4 { font-size: 1.05rem; font-weight: 700; }
 .hero__note { margin-top: 22px; color: var(--txt-dim); font-size: .95rem; }
 
 /* Molduras de celular */
-.hero__art { position: relative; display: flex; justify-content: center; align-items: center; min-height: 480px; }
+.hero__art { position: relative; display: flex; justify-content: center; align-items: center; min-height: 360px; }
+/* Composição ponte + logotipo SSSN 7 (PNG com fundo transparente, para casar com
+   o fundo azul da página em qualquer seção). */
+.hero__brandart {
+  width: 100%; max-width: 620px; height: auto;
+  filter: drop-shadow(0 18px 46px rgba(59, 130, 246, .35));
+  animation: float 7s ease-in-out infinite;
+}
 .phone {
   position: relative; width: 260px; border-radius: 34px;
   background: #05203f; padding: 10px;
@@ -155,6 +162,8 @@ h4 { font-size: 1.05rem; font-weight: 700; }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
+/* 5 públicos-alvo em uma única faixa no desktop (evita o card órfão) */
+.grid--5 { grid-template-columns: repeat(5, 1fr); gap: 18px; }
 
 /* ---------- Cards (para quem é) ---------- */
 .card {
@@ -244,10 +253,10 @@ h4 { font-size: 1.05rem; font-weight: 700; }
    RESPONSIVO
    =================================================================== */
 @media (max-width: 900px) {
-  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .grid--4, .grid--5 { grid-template-columns: repeat(2, 1fr); }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .hero__inner { grid-template-columns: 1fr; }
-  .hero__art { order: -1; min-height: 420px; }
+  .hero__art { order: -1; min-height: 200px; }
   .lead { max-width: none; }
   .split, .split--reverse { grid-template-columns: 1fr; }
   .split--reverse .split__media { order: -1; }
@@ -268,12 +277,12 @@ h4 { font-size: 1.05rem; font-weight: 700; }
   .nav__menu.is-open { transform: none; opacity: 1; pointer-events: auto; }
   .nav__menu a:not(.btn) { padding: 12px 4px; border-bottom: 1px solid var(--line); }
   .nav__menu .btn { margin-top: 10px; }
-  .grid--4, .grid--3, .grid--2 { grid-template-columns: 1fr; }
+  .grid--5, .grid--4, .grid--3, .grid--2 { grid-template-columns: 1fr; }
   .hero__cta .btn { flex: 1 1 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .phone--float { animation: none; }
+  .phone--float, .hero__brandart { animation: none; }
   .reveal { transition: none; opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
